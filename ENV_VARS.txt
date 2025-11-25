@@ -1,0 +1,14 @@
+ENVIRONMENT VARIABLES FOR VERCEL
+=================================
+
+Copy-paste these into Vercel:
+
+1. NEXT_PUBLIC_SUPABASE_URL
+https://ewfrofdnvqdcvfffzpdw.supabase.co
+
+2. NEXT_PUBLIC_SUPABASE_ANON_KEY
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV3ZnJvZmRudnFkY3ZmZmZ6cGR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwOTM4NDcsImV4cCI6MjA3OTY2OTg0N30.WkdY8QMdba5GNhJvoTXPNmA1uMY2QR3Uw3obqfN3ldw
+
+=================================
+Just copy each value when Vercel asks!
+
