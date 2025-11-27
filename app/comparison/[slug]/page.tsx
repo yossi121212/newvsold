@@ -26,10 +26,10 @@ export default async function ComparisonPage({ params }: PageProps) {
               The site is not configured yet. Please set up Supabase before using.
             </p>
             <a
-              href="/"
+              href="/gallery"
               className="inline-block px-6 py-3 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-semibold rounded-lg transition-colors"
             >
-              Back to Home
+              Back to Gallery
             </a>
           </div>
         </div>

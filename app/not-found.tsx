@@ -13,7 +13,7 @@ export default function NotFound() {
             Comparison Not Found
           </p>
           <Link
-            href="/"
+            href="/gallery"
             className="inline-flex items-center gap-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
           >
             <svg
@@ -29,7 +29,7 @@ export default function NotFound() {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            Back to Home
+            Back to Gallery
           </Link>
         </div>
       </div>

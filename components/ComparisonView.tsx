@@ -13,10 +13,9 @@ interface ComparisonViewProps {
 }
 
 export default function ComparisonView({ comparison }: ComparisonViewProps) {
-  // Check if we came from gallery (using document.referrer)
-  const isFromGallery = typeof window !== 'undefined' && document.referrer.includes('/gallery');
-  const backUrl = isFromGallery ? '/gallery' : '/';
-  const backText = isFromGallery ? 'Back to Gallery' : 'Back to Home';
+  // Always go back to gallery
+  const backUrl = '/gallery';
+  const backText = 'Back to Gallery';
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#1f1f1f]">
