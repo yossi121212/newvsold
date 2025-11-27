@@ -1,9 +1,9 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
+    <div className="min-h-screen bg-white dark:bg-[#1f1f1f] flex items-center justify-center">
       <div className="text-center">
         <svg
-          className="animate-spin h-16 w-16 text-blue-600 mx-auto mb-4"
+          className="animate-spin h-16 w-16 text-gray-900 dark:text-white mx-auto mb-4"
           viewBox="0 0 24 24"
         >
           <circle

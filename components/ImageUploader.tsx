@@ -119,9 +119,9 @@ export default function ImageUploader({ label, onImageSelect, preview }: ImageUp
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center h-full space-y-3">
-            <div className="w-14 h-14 bg-gray-100 dark:bg-gray-700 rounded-2xl flex items-center justify-center">
+            <div className="w-14 h-14 bg-gray-200 dark:bg-[#2a2a2a] border border-gray-300 dark:border-[#3a3a3a] rounded-2xl flex items-center justify-center">
               <svg
-                className="w-7 h-7 text-gray-600 dark:text-gray-400"
+                className="w-7 h-7 text-gray-500 dark:text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

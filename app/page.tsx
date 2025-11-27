@@ -69,6 +69,7 @@ export default function Home() {
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
+        cache: 'no-store',
       });
 
       const data = await response.json();
@@ -93,8 +94,8 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 text-white dark:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
                 </svg>
               </div>
@@ -102,7 +103,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3">
               {!isConfigured && (
-                <span className="text-xs font-medium text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded-full">
+                <span className="text-xs font-medium text-gray-700 bg-gray-100 dark:bg-[#2a2a2a] dark:text-gray-300 px-2.5 py-1 rounded-full border border-gray-200 dark:border-[#3a3a3a]">
                   Demo Mode
                 </span>
               )}
@@ -135,20 +136,20 @@ export default function Home() {
 
         {/* Demo Notice */}
         {!isConfigured && (
-          <div className="mb-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-6">
+          <div className="mb-8 bg-gray-50 dark:bg-[#2a2a2a] border border-gray-200 dark:border-[#3a3a3a] rounded-2xl p-6">
             <div className="flex gap-3">
               <div className="flex-shrink-0">
-                <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-gray-600 dark:text-gray-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-1">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
                   Running in Demo Mode
                 </h3>
-                <p className="text-sm text-blue-700 dark:text-blue-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   Your comparisons work perfectly, but aren't saved. To save and share permanently, 
-                  configure Supabase (takes 5 minutes). See <code className="bg-blue-100 dark:bg-blue-800 px-1.5 py-0.5 rounded text-xs">SETUP.md</code>
+                  configure Supabase (takes 5 minutes). See <code className="bg-gray-100 dark:bg-[#3a3a3a] px-1.5 py-0.5 rounded text-xs">SETUP.md</code>
                 </p>
               </div>
             </div>
@@ -171,7 +172,7 @@ export default function Home() {
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+            <div className="mb-6 p-4 bg-red-50 dark:bg-[#2a2a2a] border border-red-200 dark:border-red-800 rounded-xl">
               <p className="text-sm text-red-800 dark:text-red-300">{error}</p>
             </div>
           )}
@@ -184,8 +185,8 @@ export default function Home() {
                transition-all duration-200
                ${
                  !beforeImage || !afterImage || isUploading
-                   ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                   : 'bg-black hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black shadow-md hover:shadow-lg'
+                   ? 'bg-gray-300 dark:bg-[#2a2a2a] text-gray-500 dark:text-gray-600 cursor-not-allowed border border-gray-300 dark:border-[#3a3a3a]'
+                   : 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-100 dark:hover:bg-white text-white dark:text-black shadow-lg hover:shadow-xl'
                }
              `}
            >
@@ -218,8 +219,8 @@ export default function Home() {
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-6">
           <div className="text-center p-6">
-            <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-gray-100 dark:bg-[#2a2a2a] rounded-xl flex items-center justify-center mx-auto mb-4 border border-gray-200 dark:border-[#3a3a3a]">
+              <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
               </svg>
             </div>
@@ -230,8 +231,8 @@ export default function Home() {
           </div>
           
           <div className="text-center p-6">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-gray-100 dark:bg-[#2a2a2a] rounded-xl flex items-center justify-center mx-auto mb-4 border border-gray-200 dark:border-[#3a3a3a]">
+              <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
               </svg>
             </div>
@@ -242,8 +243,8 @@ export default function Home() {
           </div>
           
           <div className="text-center p-6">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-gray-100 dark:bg-[#2a2a2a] rounded-xl flex items-center justify-center mx-auto mb-4 border border-gray-200 dark:border-[#3a3a3a]">
+              <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
             </div>

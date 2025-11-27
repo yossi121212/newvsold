@@ -54,7 +54,7 @@ export default function DemoComparisonPage() {
             </Link>
             
             <div className="flex items-center gap-3">
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded-full">
+              <span className="text-xs font-medium text-gray-700 bg-gray-100 dark:bg-[#2a2a2a] dark:text-gray-300 px-2.5 py-1 rounded-full border border-gray-200 dark:border-[#3a3a3a]">
                 Demo Mode
               </span>
               <ThemeToggle />
@@ -66,18 +66,18 @@ export default function DemoComparisonPage() {
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-6 py-8">
           {/* Demo Notice */}
-          <div className="bg-blue-50 dark:bg-[#2a2a2a] border border-blue-200 dark:border-[#3a3a3a] rounded-2xl p-6 mb-8">
+          <div className="bg-gray-50 dark:bg-[#2a2a2a] border border-gray-200 dark:border-[#3a3a3a] rounded-2xl p-6 mb-8">
           <div className="flex gap-3">
             <div className="flex-shrink-0">
-              <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-gray-600 dark:text-gray-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-1">
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
                 Demo Mode Active
               </h3>
-              <p className="text-sm text-blue-700 dark:text-blue-300">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 Your comparison is not saved. Only you can see it. To save and share permanently, 
                 configure Supabase (see instructions on home page).
               </p>
@@ -127,25 +127,25 @@ export default function DemoComparisonPage() {
             </p>
             <div className="grid sm:grid-cols-2 gap-3 mb-6 text-left">
               <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                <svg className="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-700 dark:text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 Permanent shareable links
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                <svg className="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-700 dark:text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 Cloud storage
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                <svg className="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-700 dark:text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 Animated GIF export
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                <svg className="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-700 dark:text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 Embed anywhere

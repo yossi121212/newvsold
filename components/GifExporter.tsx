@@ -138,17 +138,17 @@ export default function GifExporter({ beforeImage, afterImage }: GifExporterProp
         onClick={createGif}
         disabled={isExporting}
         className={`
-          flex items-center gap-2 px-6 py-3 font-semibold rounded-full shadow-lg transition-all duration-200 transform
+          flex items-center gap-2 px-4 py-2 font-medium rounded-lg border transition-all duration-200
           ${
             isExporting
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-green-600 hover:bg-green-700 text-white hover:shadow-xl hover:scale-105'
+              ? 'bg-gray-100 dark:bg-[#2a2a2a] text-gray-400 dark:text-gray-600 border-gray-200 dark:border-[#3a3a3a] cursor-not-allowed'
+              : 'bg-gray-100 dark:bg-[#2a2a2a] hover:bg-gray-200 dark:hover:bg-[#3a3a3a] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#3a3a3a]'
           }
         `}
       >
         {isExporting ? (
           <>
-            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+            <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
               <circle
                 className="opacity-25"
                 cx="12"
@@ -169,7 +169,7 @@ export default function GifExporter({ beforeImage, afterImage }: GifExporterProp
         ) : (
           <>
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

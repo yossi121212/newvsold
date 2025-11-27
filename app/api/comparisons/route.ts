@@ -1,13 +1,16 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
+// Disable caching for this API route
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const { data, error } = await supabase
       .from('comparisons')
       .select('*')
-      .order('created_at', { ascending: false })
-      .limit(50); // Limit to last 50 comparisons
+      .order('created_at', { ascending: false });
 
     if (error) {
       console.error('Database error:', error);
