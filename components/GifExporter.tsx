@@ -52,9 +52,10 @@ export default function GifExporter({ beforeImage, afterImage }: GifExporterProp
       const ctx = canvas.getContext('2d');
       if (!ctx) throw new Error('Could not get canvas context');
 
-      // Number of frames
-      const frames = 30;
-      const delay = 100; // ms per frame
+      // Number of frames (more frames = smoother animation)
+      const frames = 40;
+      const delay = 80; // ms per frame (slower animation)
+      const pauseDelay = 300; // shorter pause between loops
 
       // Calculate aspect-fit dimensions
       const imgAspect = beforeImg.width / beforeImg.height;
@@ -73,10 +74,8 @@ export default function GifExporter({ beforeImage, afterImage }: GifExporterProp
         offsetY = 0;
       }
 
-      // Create frames by animating the slider position
-      for (let i = 0; i <= frames; i++) {
-        const position = (i / frames); // 0 to 1
-        
+      // Helper function to draw frame
+      const drawFrame = (position: number) => {
         // Clear canvas with white background
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, 800, 600);
@@ -84,7 +83,7 @@ export default function GifExporter({ beforeImage, afterImage }: GifExporterProp
         // Draw after image (full)
         ctx.drawImage(afterImg, offsetX, offsetY, drawWidth, drawHeight);
 
-        // Clip and draw before image
+        // Clip and draw before image (reversed: starts at 1, ends at 0)
         ctx.save();
         ctx.beginPath();
         ctx.rect(offsetX, offsetY, drawWidth * position, drawHeight);
@@ -104,10 +103,50 @@ export default function GifExporter({ beforeImage, afterImage }: GifExporterProp
         ctx.stroke();
         ctx.shadowBlur = 0;
 
-        // Add frame to GIF
-        gif.addFrame(canvas, { copy: true, delay });
+        // Add labels in the corners with strong shadow (always visible)
+        ctx.font = 'bold 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+        ctx.textAlign = 'left';
         
-        setProgress(10 + Math.round((i / frames) * 80));
+        // Strong shadow for better visibility
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+        ctx.shadowBlur = 12;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        
+        // Before label - bottom left corner
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText('Before', offsetX + 20, offsetY + drawHeight - 20);
+        
+        // After label - bottom right corner
+        ctx.textAlign = 'right';
+        ctx.fillText('After', offsetX + drawWidth - 20, offsetY + drawHeight - 20);
+        
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+      };
+
+      // Start with Before image fully visible (position = 1)
+      // Add pause frames at the start
+      for (let i = 0; i < 5; i++) {
+        drawFrame(1); // Full Before image
+        gif.addFrame(canvas, { copy: true, delay: pauseDelay });
+        setProgress(10 + Math.round((i / (frames + 10)) * 80));
+      }
+
+      // Animate from Before to After (position goes from 1 to 0)
+      for (let i = 0; i <= frames; i++) {
+        const position = 1 - (i / frames); // Start at 1 (full Before), end at 0 (full After)
+        drawFrame(position);
+        gif.addFrame(canvas, { copy: true, delay });
+        setProgress(10 + Math.round(((i + 5) / (frames + 10)) * 80));
+      }
+
+      // Add pause frames at the end
+      for (let i = 0; i < 5; i++) {
+        drawFrame(0); // Full After image
+        gif.addFrame(canvas, { copy: true, delay: pauseDelay });
+        setProgress(10 + Math.round(((frames + 5 + i) / (frames + 10)) * 80));
       }
 
       // Render GIF
